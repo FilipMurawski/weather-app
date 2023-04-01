@@ -24,6 +24,53 @@
         text-align: center;
         outline: none;
         font-weight: 700;
-        @include font-clamp(12px,24px,320px,1320px)
+        @include font-clamp(12px,24px,320px,1320px);
+        margin: 0 0 40px 0;
     }
+    &__info {
+        padding: 30px;
+        background-color: #0000002d;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 15px;
+        color: $titleColor;
+        border-radius: 25px;
+    }
+    &__icon {
+        width: calc(100%/3);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        img {
+            display: block;
+            width: 100%;
+        }
+    }
+
+    &__temp {
+        width: calc(100%/3);
+        font-size: 60px;
+        display: flex;
+
+        
+        span {
+            font-size: 24px;
+        }
+    }
+    &__additional-info {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: left;
+        gap: 15px;
+        width: 150px;
+
+    }
+    &__wind {
+        width: 100%;
+    }
+
 }
