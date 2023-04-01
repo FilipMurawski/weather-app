@@ -305,7 +305,7 @@ h1, h2, h3, h4, h5, h6 {
           flex-direction: column;
 }
 .weather__title {
-  margin: 0 0 30px 0;
+  margin: 0 0 50px 0;
   font-size: 30px;
   font-size: clamp(30px, 20.4px + 3vw, 60px);
   text-align: center;
@@ -314,5 +314,19 @@ h1, h2, h3, h4, h5, h6 {
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
-  color: #000;
+  color: #efe5e5;
+}
+.weather__form {
+  width: min(50%, 500px);
+}
+.weather__city {
+  padding: 15px 5px;
+  border-radius: 25px;
+  border: 0;
+  width: 100%;
+  text-align: center;
+  outline: none;
+  font-weight: 700;
+  font-size: 12px;
+  font-size: clamp(12px, 8.16px + 1.2vw, 24px);
 }
