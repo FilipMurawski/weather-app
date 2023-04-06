@@ -15,7 +15,7 @@
     ],
     "theme_color": "#99dce0",
     "background_color": "#99dce0",
-    "display": "standalone",
+    "display": "fullscreen",
     "start_url": "/weather-app/index.html",
     "orientation": "portrait-primary"
 }
