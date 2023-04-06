@@ -1,14 +1,23 @@
 let weatherForm = document.querySelector('.weather__form')
 let inputCity = document.querySelector('.weather__city')
 let apiDataContainer = document.querySelector('.weather__data')
+let loader = document.querySelector('.weather__loader')
 
 let apiUrl = 'https://api.weatherapi.com/v1/current.json?key=1aa3e20430224597beb131225230104&aqi=yes&q='
 
 weatherForm.addEventListener('submit', (event) => {
+    showLoader()
     let city = inputCity.value;
     let fullApiUrl = apiUrl + city
 
-    fetch(fullApiUrl).then(response => response.json()).then((dataFromApi) => {
+    fetch(fullApiUrl).then(response => {
+        hideLoader()
+        if (response.status === 200) {
+            return response.json()
+        }
+
+        throw new Error('Api Error')
+    }).then((dataFromApi) => {
         // console.log(dataFromApi.current.temp_c)
         let view = ``
         // view += `W ${dataFromApi.location.name} jest dzisiaj ${dataFromApi.current.temp_c} stopni Celcjusza`       
@@ -28,7 +37,23 @@ weatherForm.addEventListener('submit', (event) => {
         view += `</div>`
         view += `</div>`
         apiDataContainer.innerHTML = view
+    }).catch((error) => {
+        showError()
     })
 
     event.preventDefault()
 })
+
+// Show error function 
+
+let showError = () => {
+    apiDataContainer.innerHTML = `<div class="weather__error">City no found or we have problem with API</div>`
+}
+
+let showLoader = () => {
+    loader.style.display = 'block'
+}
+
+let hideLoader = () => {
+    loader.style.display = 'none'
+}
